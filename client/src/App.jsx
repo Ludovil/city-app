@@ -1,11 +1,8 @@
+import Map from "./components/Map";
 import "./App.css";
 
 function App() {
-  return (
-    <>
-      <h1>Berliner Klo ? Irgendwo!</h1>
-    </>
-  );
+  return <Map />;
 }
 
 export default App;

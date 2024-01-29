@@ -5,7 +5,7 @@ dotenv.config();
 
 // server
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 2000;
 
 // database
 const MONGO_NAME = process.env.MONGO_NAME;
