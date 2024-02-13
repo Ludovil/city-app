@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .home-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: inline-block;
+    color: white;
+    font-family: "wallpoet";
+    font-size: 1.4rem;
+    background-color: black;
+    opacity: 75%;
+  }
+}
