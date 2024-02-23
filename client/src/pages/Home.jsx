@@ -13,7 +13,7 @@ function Home() {
           // backgroundPosition: "center",
         }}
       >
-        <h1 className=" font-wallpoet text-8xl  text-center bg-custom-grey bg-opacity-75">
+        <h1 className="font-wallpoet text-8xl  text-center bg-custom-grey bg-opacity-75">
           Berliner Klo ? Irgendwo!
         </h1>
         <div className="search-box">
@@ -23,8 +23,10 @@ function Home() {
             type="text"
             placeholder="enter your location"
           />
-          <button className="home-btn">GO</button>
-          <button className="home-btn">X</button>
+          <div className="buttons">
+            <button className="home-btn">GO</button>
+            <button className="home-btn">X</button>
+          </div>
         </div>
       </section>
     </>
