@@ -7,9 +7,11 @@ export default {
         wallpoet: ["Wallpoet", "sans-serif"],
       },
       colors: {
-        "custom-grey": "#D3D4D3",
-        "custom-darkblue": "#025E73",
+        "custom-grey": "#D9D9D9",
+        "custom-darkgrey": "#B1ACAC",
+        "custom-darkblue": "#011F26",
         "custom-black": "#011F26",
+        "button-blue": "#025E73",
         // Add more custom colors as needed
       },
     },
