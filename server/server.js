@@ -2,14 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config();
-
-import {
-  createUser,
-  getUser,
-  loginUser,
-  updateUser,
-  deleteUser,
-} from "./controllers/usersController.js";
+import usersRoute from "./routes/usersRoute.js";
 
 // server
 const app = express();
@@ -35,20 +28,8 @@ app.get("/", (req, res) => {
   res.json({ msg: "Welcome to the server" });
 });
 
-// thunderclient : post http://localhost:2000/users
-app.post("/users", createUser);
-
-// thunderclient : post http://localhost:2000/login
-app.post("/login", loginUser);
-
-// thunderclient : get http://localhost:2000/users/id
-app.get("/users/:id", getUser);
-
-// thunderclient : put http://localhost:2000/users/id
-app.put("/users/:id", updateUser);
-
-// thunderclient : delete http://localhost:2000/users/id
-app.delete("/users/:id", deleteUser);
+// routes
+app.use("/users", usersRoute);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
