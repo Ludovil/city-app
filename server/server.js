@@ -3,7 +3,13 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config();
 
-import { createUser } from "./controllers/usersController.js";
+import {
+  createUser,
+  getUser,
+  loginUser,
+  updateUser,
+  deleteUser,
+} from "./controllers/usersController.js";
 
 // server
 const app = express();
@@ -31,4 +37,23 @@ app.get("/", (req, res) => {
 
 // thunderclient : post http://localhost:2000/users
 app.post("/users", createUser);
+
+// thunderclient : post http://localhost:2000/login
+app.post("/login", loginUser);
+
+// thunderclient : get http://localhost:2000/users/id
+app.get("/users/:id", getUser);
+
+// thunderclient : put http://localhost:2000/users/id
+app.put("/users/:id", updateUser);
+
+// thunderclient : delete http://localhost:2000/users/id
+app.delete("/users/:id", deleteUser);
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: "Internal Server Error" });
+});
+
 app.listen(PORT, () => console.log("Server is running on PORT", PORT));

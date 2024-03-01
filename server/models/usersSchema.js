@@ -20,6 +20,6 @@ const userSchema = new Schema({
   toilets: [{ type: Schema.Types.ObjectId, ref: "toilets" }],
 });
 
-const UserCollection = model("users", userSchema);
+const usersModel = model("users", userSchema);
 
-export default UserCollection;
+export default usersModel;
