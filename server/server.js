@@ -8,7 +8,7 @@ import usersRoute from "./routes/usersRoute.js";
 const app = express();
 const PORT = process.env.PORT || 2000;
 
-// database
+// database logs
 const MONGO_NAME = process.env.MONGO_NAME;
 const MONGO_PW = process.env.MONGO_PW;
 const MONGO_DB = process.env.MONGO_DB;
@@ -16,6 +16,7 @@ const MONGO_DB = process.env.MONGO_DB;
 // Middleware to parse JSON bodies
 app.use(express.json());
 
+// connect to database
 mongoose
   .connect(
     `mongodb+srv://${MONGO_NAME}:${MONGO_PW}@${MONGO_DB}.mongodb.net/cityapp`
@@ -23,6 +24,7 @@ mongoose
   .then(() => console.log("Connected to DB"))
   .catch((err) => console.log(err.message));
 
+// Connexion test
 // thunderclient : get  http://localhost:2000
 app.get("/", (req, res) => {
   res.json({ msg: "Welcome to the server" });

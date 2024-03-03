@@ -6,14 +6,14 @@ import jwt from "jsonwebtoken";
 export const createUser = async (req, res) => {
   try {
     console.log(req.body);
-    const {
-      username,
-      email,
-      password,
-      profile_image,
-      profile_description,
-      toilets,
-    } = req.body;
+    const { username, email, password, profile_description, toilets } =
+      req.body;
+
+    const profile_image = req.files.profile_image;
+    const cloudinaryResponse = await cloudinary.v2.uploader.upload(
+      `./uploads/${profile_image.name}`,
+      { folder: "berliner_klo/profile_images" }
+    );
 
     // Hash the password
     const hashedPassword = bcrypt.hashSync(password, 10);
@@ -21,7 +21,7 @@ export const createUser = async (req, res) => {
       username,
       email,
       password: hashedPassword,
-      profile_image,
+      profile_image: cloudinaryResponse.secure_url,
       profile_description,
       toilets,
     });
